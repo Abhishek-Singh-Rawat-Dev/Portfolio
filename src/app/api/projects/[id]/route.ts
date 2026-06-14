@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import dbConnect from '@/lib/mongodb';
-import { Project } from '@/models/Project';
+import { sql } from '@vercel/postgres';
 
 export async function PUT(
   req: Request,
@@ -14,19 +13,37 @@ export async function PUT(
     }
 
     const { id } = await params;
-    await dbConnect();
     const data = await req.json();
+    const { title, description, category, tags, codeLink, icon, order } = data;
 
-    const updatedProject = await Project.findByIdAndUpdate(id, data, {
-      new: true,
-      runValidators: true,
-    });
+    const projectId = parseInt(id);
+    if (isNaN(projectId)) {
+      return NextResponse.json({ error: 'Invalid project ID' }, { status: 400 });
+    }
 
-    if (!updatedProject) {
+    const pgTags = tags && Array.isArray(tags)
+      ? `{${tags.map(t => `"${t}"`).join(',')}}`
+      : '{}';
+
+    const result = await sql`
+      UPDATE projects
+      SET 
+        title = ${title}, 
+        description = ${description}, 
+        category = ${category}, 
+        tags = ${pgTags}, 
+        code_link = ${codeLink}, 
+        icon = ${icon || 'fas fa-code'}, 
+        sort_order = ${order || 0}
+      WHERE id = ${projectId}
+      RETURNING *;
+    `;
+
+    if (result.rowCount === 0) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ success: true, data: updatedProject });
+    return NextResponse.json({ success: true, data: result.rows[0] });
   } catch (error: any) {
     console.error('Project PUT API Error:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
@@ -44,11 +61,18 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    await dbConnect();
+    const projectId = parseInt(id);
+    if (isNaN(projectId)) {
+      return NextResponse.json({ error: 'Invalid project ID' }, { status: 400 });
+    }
 
-    const deletedProject = await Project.findByIdAndDelete(id);
+    const result = await sql`
+      DELETE FROM projects
+      WHERE id = ${projectId}
+      RETURNING *;
+    `;
 
-    if (!deletedProject) {
+    if (result.rowCount === 0) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 

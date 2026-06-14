@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { IProject } from '@/models/Project';
-import { IProfile } from '@/models/Profile';
+import { IProject, IProfile } from '@/types';
 
 interface PortfolioClientProps {
   initialProfile: IProfile;

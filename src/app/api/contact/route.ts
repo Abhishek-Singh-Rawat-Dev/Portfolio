@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/mongodb';
-import { Contact } from '@/models/Contact';
+import { sql } from '@vercel/postgres';
+import { initDatabase } from '@/lib/postgres';
 
 export async function POST(req: Request) {
   try {
-    await dbConnect();
     const { name, email, message } = await req.json();
 
     if (!name || !email || !message) {
@@ -14,8 +13,14 @@ export async function POST(req: Request) {
       );
     }
 
-    const newContact = await Contact.create({ name, email, message });
-    return NextResponse.json({ success: true, data: newContact }, { status: 201 });
+    await initDatabase();
+    const result = await sql`
+      INSERT INTO contacts (name, email, message)
+      VALUES (${name}, ${email}, ${message})
+      RETURNING *;
+    `;
+    
+    return NextResponse.json({ success: true, data: result.rows[0] }, { status: 201 });
   } catch (error: any) {
     console.error('Contact API Error:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

@@ -3,9 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { IProject } from '@/models/Project';
-import { IProfile } from '@/models/Profile';
-import { IContact } from '@/models/Contact';
+import { IProject, IProfile, IContact } from '@/types';
 
 export default function AdminPage() {
   const { data: session, status } = useSession();
