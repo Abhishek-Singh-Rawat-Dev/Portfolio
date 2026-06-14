@@ -1,4 +1,4 @@
-import { createPool } from '@vercel/postgres';
+import postgres from 'postgres';
 
 // Resolve connection string dynamically with fallback to local development database
 const connectionString = 
@@ -7,11 +7,32 @@ const connectionString =
   process.env.DATABASE_URL || 
   "postgres://postgres:postgres@localhost:5432/portfolio";
 
-const pool = createPool({
-  connectionString: connectionString,
-});
+let sqlInstance: any;
 
-export const sql = pool.sql;
+function getSql() {
+  if (!sqlInstance) {
+    const isSSL = connectionString.includes('sslmode=require') || 
+                  connectionString.includes('.postgres.vercel-storage.com') || 
+                  connectionString.includes('.neon.tech');
+    sqlInstance = postgres(connectionString, {
+      ssl: isSSL ? 'require' : false,
+      // We can add max: 10 or other configurations if needed, but defaults are good
+    });
+  }
+  return sqlInstance;
+}
+
+export async function sql<T extends Record<string, any> = any>(
+  strings: TemplateStringsArray,
+  ...values: any[]
+): Promise<{ rows: T[]; rowCount: number }> {
+  const db = getSql();
+  const result = await db(strings, ...values);
+  return {
+    rows: Array.from(result) as T[],
+    rowCount: result.count,
+  };
+}
 
 export async function initDatabase() {
   try {
