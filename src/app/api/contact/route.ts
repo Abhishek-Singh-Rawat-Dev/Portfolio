@@ -1,3 +1,4 @@
+import '@/lib/env';
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 import { initDatabase } from '@/lib/postgres';

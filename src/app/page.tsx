@@ -1,3 +1,4 @@
+import '@/lib/env';
 import { sql } from '@vercel/postgres';
 import { initDatabase } from '@/lib/postgres';
 import PortfolioClient from '@/components/PortfolioClient';
