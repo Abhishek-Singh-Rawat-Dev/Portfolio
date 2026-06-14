@@ -1,6 +1,7 @@
 import { sql, initDatabase } from '@/lib/postgres';
 import PortfolioClient from '@/components/PortfolioClient';
 
+export const dynamic = 'force-dynamic'; // Never prerender — requires DB at runtime
 export const revalidate = 0; // Disable static cache to reflect admin updates instantly
 
 function toCamelCaseProfile(dbRow: any) {
