@@ -1,6 +1,4 @@
-import '@/lib/env';
-import { sql } from '@vercel/postgres';
-import { initDatabase } from '@/lib/postgres';
+import { sql, initDatabase } from '@/lib/postgres';
 import PortfolioClient from '@/components/PortfolioClient';
 
 export const revalidate = 0; // Disable static cache to reflect admin updates instantly

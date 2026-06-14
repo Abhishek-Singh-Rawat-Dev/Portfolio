@@ -1,7 +1,6 @@
-import '@/lib/env';
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { sql } from '@vercel/postgres';
+import { sql } from '@/lib/postgres';
 
 export async function PUT(
   req: Request,

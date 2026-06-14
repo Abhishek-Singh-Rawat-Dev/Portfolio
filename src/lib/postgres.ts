@@ -1,5 +1,17 @@
-import '@/lib/env';
-import { sql } from '@vercel/postgres';
+import { createPool } from '@vercel/postgres';
+
+// Resolve connection string dynamically with fallback to local development database
+const connectionString = 
+  process.env.POSTGRES_URL || 
+  process.env.STORAGE_URL || 
+  process.env.DATABASE_URL || 
+  "postgres://postgres:postgres@localhost:5432/portfolio";
+
+const pool = createPool({
+  connectionString: connectionString,
+});
+
+export const sql = pool.sql;
 
 export async function initDatabase() {
   try {

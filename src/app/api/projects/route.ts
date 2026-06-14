@@ -1,8 +1,6 @@
-import '@/lib/env';
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { sql } from '@vercel/postgres';
-import { initDatabase } from '@/lib/postgres';
+import { sql, initDatabase } from '@/lib/postgres';
 
 // GET: List all projects
 export async function GET() {

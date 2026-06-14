@@ -1,8 +1,6 @@
-import '@/lib/env';
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { sql } from '@vercel/postgres';
-import { initDatabase } from '@/lib/postgres';
+import { sql, initDatabase } from '@/lib/postgres';
 
 function toCamelCase(dbRow: any) {
   if (!dbRow) return null;
