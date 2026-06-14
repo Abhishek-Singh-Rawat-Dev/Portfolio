@@ -1,65 +1,107 @@
-import Image from "next/image";
+import dbConnect from '@/lib/mongodb';
+import { Project } from '@/models/Project';
+import { Profile } from '@/models/Profile';
+import PortfolioClient from '@/components/PortfolioClient';
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+export const revalidate = 0; // Disable static cache to reflect admin updates instantly
+
+export default async function Home() {
+  await dbConnect();
+
+  // 1. Fetch Profile (Seed if empty)
+  let dbProfile = await Profile.findOne({});
+  if (!dbProfile) {
+    const defaultProfile = {
+      title: "Software Engineer",
+      bio: "I am a second-year B.Tech student from India, diving into everything tech-related—from crafting sleek web apps to wrestling with data structures. Fueled by curiosity and a zest for learning, I love turning bright ideas into reality, one project at a time!",
+      subBio: "Currently on a journey to master C++ development, algorithms, AI, and machine learning architectures.",
+      projectsCount: "15+",
+      solvedCount: "500+",
+      educationYear: "2nd",
+      leetcodeUsername: "user1420abhi",
+      leetcodeSolved: "350+",
+      leetcodeRating: "Top 15%",
+      leetcodeMaxDifficulty: "Medium",
+      leetcodeStreak: "Active",
+      gfgUsername: "scientinz48",
+      gfgSolved: "250+",
+      gfgScore: "900+",
+      gfgSkills: "DSA",
+      gfgRank: "College Rank #24",
+      githubUsername: "Abhishek-Singh-Rawat-Dev",
+      githubRepos: "13",
+      githubCommits: "300+",
+      githubForks: "4",
+      githubContributions: "Active"
+    };
+    dbProfile = await Profile.create(defaultProfile);
+  }
+
+  // 2. Fetch Projects (Seed if empty)
+  let dbProjects = await Project.find({}).sort({ order: 1, createdAt: -1 });
+  if (dbProjects.length === 0) {
+    const defaultProjects = [
+      {
+        title: "Mini SQL Compiler",
+        description: "A Compiler Design academic project implementing lexical, syntax, and semantic analysis phases. Built in C++ to parse, validate, and execute simple SQL-like relational database queries.",
+        category: "cpp",
+        tags: ["C++", "Compilers", "Lex & Yacc"],
+        codeLink: "https://github.com/Abhishek-Singh-Rawat-Dev/mini-sql-compiler",
+        icon: "fas fa-terminal",
+        order: 1
+      },
+      {
+        title: "Student Tracking System",
+        description: "A collaborative tracking and analytics system developed within StudentTrackingOrg. Designed to monitor student performance metric trends, attendance patterns, and core study schedules.",
+        category: "python",
+        tags: ["Python", "Data Analysis", "MySQL"],
+        codeLink: "https://github.com/Abhishek-Singh-Rawat-Dev/student-tracking-system",
+        icon: "fas fa-chart-line",
+        order: 2
+      },
+      {
+        title: "E-Commerce Website",
+        description: "An interactive full storefront template featuring dynamically rendered products, search bar query filtering, interactive cart additions, and responsive grid layouts.",
+        category: "web",
+        tags: ["JavaScript", "HTML5", "Vanilla CSS"],
+        codeLink: "https://github.com/Abhishek-Singh-Rawat-Dev/E-Commerce-Website",
+        icon: "fas fa-shopping-cart",
+        order: 3
+      },
+      {
+        title: "Multi-threaded Web Crawler",
+        description: "A script to scan and extract metadata elements from websites concurrently. Includes speed limit throttling to respect target site bandwidth constraints and exports outputs to CSV formats.",
+        category: "python",
+        tags: ["Python", "BeautifulSoup", "Scrapy"],
+        codeLink: "https://github.com/Abhishek-Singh-Rawat-Dev/Web_Crawler",
+        icon: "fas fa-spider",
+        order: 4
+      },
+      {
+        title: "Titanic Survival Project",
+        description: "An end-to-end Machine Learning project using classifier algorithms to forecast individual passenger survival chances based on demographics, ticket class, and details.",
+        category: "python",
+        tags: ["HTML", "Scikit-Learn", "Pandas"],
+        codeLink: "https://github.com/Abhishek-Singh-Rawat-Dev/Titanic_Survival_Project",
+        icon: "fas fa-ship",
+        order: 5
+      },
+      {
+        title: "Resume Portfolio Builder",
+        description: "A full-stack resume application using React architectures and dynamic templating. Built on modern database architectures featuring visual editing control panels.",
+        category: "web",
+        tags: ["Next.js 15", "TypeScript", "PostgreSQL"],
+        codeLink: "https://github.com/Abhishek-Singh-Rawat-Dev/MyResume",
+        icon: "far fa-file-alt",
+        order: 6
+      }
+    ];
+    dbProjects = await Project.insertMany(defaultProjects);
+  }
+
+  // 3. Serialize data for passing to Client Component
+  const profile = JSON.parse(JSON.stringify(dbProfile));
+  const projects = JSON.parse(JSON.stringify(dbProjects));
+
+  return <PortfolioClient initialProfile={profile} initialProjects={projects} />;
 }

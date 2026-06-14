@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Abhishek Singh Rawat, a Software Engineer and B.Tech student specializing in C++, Web Development, and Competitive Programming. View his projects, skills, and coding achievements.">
+    <meta name="keywords" content="Abhishek Singh Rawat, Software Engineer, Portfolio, Developer, C++, Web Development, LeetCode, GeeksforGeeks, Github, projects">
+    <meta name="author" content="Abhishek Singh Rawat">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Abhishek Singh Rawat | Software Engineer Portfolio">
+    <meta property="og:description" content="Curiosity-driven software developer building modern web applications and mastering C++ & data structures. Explore my coding achievements and projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Abhishek-Singh-Rawat-Dev">
+    
+    <title>Abhishek Singh Rawat | Software Engineer</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
+
+    <!-- BACKGROUND GLOWS -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo" id="nav-logo">
+                <span>&lt;</span>Abhishek<span>/&gt;</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active" id="nav-link-home">Home</a></li>
+                <li><a href="#about" class="nav-link" id="nav-link-about">About</a></li>
+                <li><a href="#skills" class="nav-link" id="nav-link-skills">Skills</a></li>
+                <li><a href="#dashboard" class="nav-link" id="nav-link-dashboard">Coding Stats</a></li>
+                <li><a href="#projects" class="nav-link" id="nav-link-projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" id="nav-link-contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" id="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="menu-toggle" id="menu-toggle" aria-label="Toggle mobile menu" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-sub">
+                    <i class="fas fa-terminal"></i> hello_world.cpp
+                </div>
+                <h1 class="hero-title" id="main-hero-title">
+                    Hi, I'm <br><span>Abhishek Singh Rawat</span>
+                </h1>
+                <h2 class="hero-title-type" style="font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; height: 50px;">
+                    I am a <span id="typed-text" style="color: var(--accent-cyan); border-right: 2px solid var(--accent-cyan); padding-right: 5px;"></span>
+                </h2>
+                <p class="hero-desc" id="main-hero-desc">
+                    I'm a B.Tech student passionate about crafting sleek web applications, solving complex algorithms, and mastering system-level C++ development. Fueled by curiosity and a zest for building solutions that work.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" id="hero-btn-projects">
+                        View Projects <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" id="hero-btn-contact">
+                        Let's Talk <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <span>CONNECT WITH ME:</span>
+                    <a href="https://github.com/Abhishek-Singh-Rawat-Dev" target="_blank" class="social-icon" aria-label="GitHub Profile" id="social-github"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/abhishek-singh-rawat-dev" target="_blank" class="social-icon" aria-label="LinkedIn Profile" id="social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/abhishek1111si?s=11" target="_blank" class="social-icon" aria-label="X Account" id="social-x"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:abhishekpersona1402@gmail.com" class="social-icon" aria-label="Email Me" id="social-email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="hero-art-container">
+                <div class="tech-sphere-wrapper">
+                    <div class="tech-sphere">
+                        <div class="sphere-core"></div>
+                    </div>
+                    <div class="floating-icon fi-1"><i class="devicon-cplusplus-line"></i></div>
+                    <div class="floating-icon fi-2"><i class="fas fa-brain"></i></div>
+                    <div class="floating-icon fi-3"><i class="devicon-javascript-plain"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;about_me&gt;</span>
+                <h2 class="section-title" id="about-title">About My Journey</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-img-wrapper">
+                    <div class="about-terminal" id="about-terminal-mock">
+                        <div class="terminal-header">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                            <span class="terminal-title">developer.sh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="term-line">
+                                <span class="term-prompt">visitor@abhishek:~$</span> <span class="term-cmd">whoami</span>
+                            </div>
+                            <div class="term-out">
+                                Abhishek Singh Rawat<br>
+                                B.Tech Student & Software Engineer<br>
+                                Based in India
+                            </div>
+                            <div class="term-line" style="margin-top: 1rem;">
+                                <span class="term-prompt">visitor@abhishek:~$</span> <span class="term-cmd">cat skills.txt</span>
+                            </div>
+                            <div class="term-out">
+                                - C++ Development (System & Algos)<br>
+                                - Machine Learning & Artificial Intelligence<br>
+                                - Full Stack Web Development
+                            </div>
+                            <div class="term-line" style="margin-top: 1rem;">
+                                <span class="term-prompt">visitor@abhishek:~$</span> <span class="term-cmd">cat interests.json</span>
+                            </div>
+                            <div class="term-out">
+                                {<br>
+                                &nbsp;&nbsp;"hobbies": ["Mastering C++", "Competitive Coding"],<br>
+                                &nbsp;&nbsp;"fun_fact": "Hooked on drama series plot twists!"<br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-details">
+                    <h3 id="about-details-header">Turning Curiosity Into Algorithms & Code</h3>
+                    <p id="about-details-desc1">
+                        I am currently in my second year of pursuing a B.Tech degree in India. My passion for engineering drives me to dive headfirst into technology—whether I am building rich web designs or refining deep machine learning models.
+                    </p>
+                    <p id="about-details-desc2">
+                        I love analyzing issues and constructing code that solves real-world challenges. My approach focuses on mastering core concepts (like C++ logic and database systems) so that I can continually learn and adapt to new technologies.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="glass-card stat-item">
+                            <div class="stat-num" id="stat-projects">15+</div>
+                            <div class="stat-label">Projects Built</div>
+                        </div>
+                        <div class="glass-card stat-item">
+                            <div class="stat-num" id="stat-solved">500+</div>
+                            <div class="stat-label">Problems Solved</div>
+                        </div>
+                        <div class="glass-card stat-item">
+                            <div class="stat-num" id="stat-year">2nd</div>
+                            <div class="stat-label">Year B.Tech</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills" style="background: var(--bg-secondary); transition: background var(--transition-speed);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;technical_stack&gt;</span>
+                <h2 class="section-title" id="skills-title">My Toolkit & Skills</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="glass-card skills-category" id="skills-category-languages">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag"><i class="devicon-cplusplus-plain colored"></i> C++</div>
+                        <div class="skill-tag"><i class="devicon-python-plain colored"></i> Python</div>
+                        <div class="skill-tag"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                        <div class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+                        <div class="skill-tag"><i class="devicon-c-plain colored"></i> C Language</div>
+                    </div>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="glass-card skills-category" id="skills-category-web">
+                    <h3><i class="fas fa-laptop-code"></i> Web Tech</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag"><i class="devicon-react-original colored"></i> React.js</div>
+                        <div class="skill-tag"><i class="devicon-nextjs-plain colored"></i> Next.js</div>
+                        <div class="skill-tag"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                        <div class="skill-tag"><i class="devicon-express-original colored"></i> Express</div>
+                        <div class="skill-tag"><i class="devicon-html5-plain colored"></i> HTML5 & CSS3</div>
+                    </div>
+                </div>
+                
+                <!-- Databases & Tools -->
+                <div class="glass-card skills-category" id="skills-category-tools">
+                    <h3><i class="fas fa-cubes"></i> DB & Tools</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                        <div class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</div>
+                        <div class="skill-tag"><i class="devicon-git-plain colored"></i> Git & GitHub</div>
+                        <div class="skill-tag"><i class="devicon-docker-plain colored"></i> Docker</div>
+                        <div class="skill-tag"><i class="fas fa-brain"></i> VS Code / CLion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CODING DASHBOARD SECTION -->
+    <section class="section" id="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;metrics_dashboard&gt;</span>
+                <h2 class="section-title" id="dashboard-title">Competitive Programming & Stats</h2>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- LeetCode Card -->
+                <div class="glass-card profile-card" id="card-leetcode">
+                    <div class="profile-card-header">
+                        <div class="profile-info">
+                            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #f89c1e;">LEETCODE</span>
+                            <h3>user1420abhi</h3>
+                        </div>
+                        <div class="profile-logo logo-leetcode">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="p-stat">
+                            <div class="p-stat-val">350+</div>
+                            <div class="p-stat-lbl">Solved</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">Top 15%</div>
+                            <div class="p-stat-lbl">Contest Rating</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">Medium</div>
+                            <div class="p-stat-lbl">Max Solved</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">Active</div>
+                            <div class="p-stat-lbl">Streak</div>
+                        </div>
+                    </div>
+                    <a href="https://leetcode.com/u/user1420abhi/" target="_blank" class="btn btn-secondary profile-link" id="link-leetcode">
+                        LeetCode Profile <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- GeeksforGeeks Card -->
+                <div class="glass-card profile-card" id="card-gfg">
+                    <div class="profile-card-header">
+                        <div class="profile-info">
+                            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #2f8e46;">GEEKSFORGEEKS</span>
+                            <h3>scientinz48</h3>
+                        </div>
+                        <div class="profile-logo logo-gfg">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="p-stat">
+                            <div class="p-stat-val">250+</div>
+                            <div class="p-stat-lbl">Solved</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">900+</div>
+                            <div class="p-stat-lbl">Coding Score</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">A+</div>
+                            <div class="p-stat-lbl">DSA Skills</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">College</div>
+                            <div class="p-stat-lbl">Rank #24</div>
+                        </div>
+                    </div>
+                    <a href="https://www.geeksforgeeks.org/profile/scientinz48" target="_blank" class="btn btn-secondary profile-link" id="link-gfg">
+                        GFG Profile <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- GitHub Card -->
+                <div class="glass-card profile-card" id="card-github">
+                    <div class="profile-card-header">
+                        <div class="profile-info">
+                            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-primary);">GITHUB</span>
+                            <h3>Abhishek-Singh-Rawat-Dev</h3>
+                        </div>
+                        <div class="profile-logo logo-github">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="p-stat">
+                            <div class="p-stat-val">13</div>
+                            <div class="p-stat-lbl">Repositories</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">300+</div>
+                            <div class="p-stat-lbl">Commits</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">4</div>
+                            <div class="p-stat-lbl">Forks</div>
+                        </div>
+                        <div class="p-stat">
+                            <div class="p-stat-val">Active</div>
+                            <div class="p-stat-lbl">Contributions</div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/Abhishek-Singh-Rawat-Dev" target="_blank" class="btn btn-secondary profile-link" id="link-github">
+                        GitHub Profile <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects" style="background: var(--bg-secondary); transition: background var(--transition-speed);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;portfolio_showcase&gt;</span>
+                <h2 class="section-title" id="projects-title">Featured Projects</h2>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cpp">C++</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="python">Python / ML</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Mini SQL Compiler -->
+                <div class="project-card-wrapper" data-category="cpp">
+                    <div class="glass-card project-card" id="project-sql-compiler">
+                        <div class="project-icon"><i class="fas fa-terminal"></i></div>
+                        <h3>Mini SQL Compiler</h3>
+                        <p class="project-desc">
+                            A Compiler Design academic project implementing lexical, syntax, and semantic analysis phases. Built in C++ to parse, validate, and execute simple SQL-like relational database queries.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">C++</span>
+                            <span class="project-tag">Compilers</span>
+                            <span class="project-tag">Lex & Yacc</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Abhishek-Singh-Rawat-Dev/mini-sql-compiler" target="_blank" class="project-link-btn" id="link-proj-sql-code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Tracking System -->
+                <div class="project-card-wrapper" data-category="python">
+                    <div class="glass-card project-card" id="project-student-tracking">
+                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Student Tracking System</h3>
+                        <p class="project-desc">
+                            A collaborative tracking and analytics system developed within StudentTrackingOrg. Designed to monitor student performance metric trends, attendance patterns, and core study schedules.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Data Analysis</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Abhishek-Singh-Rawat-Dev/student-tracking-system" target="_blank" class="project-link-btn" id="link-proj-track-code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Website -->
+                <div class="project-card-wrapper" data-category="web">
+                    <div class="glass-card project-card" id="project-ecommerce">
+                        <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3>E-Commerce Website</h3>
+                        <p class="project-desc">
+                            An interactive full storefront template featuring dynamically rendered products, search bar query filtering, interactive cart additions, and responsive grid layouts.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">Vanilla CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Abhishek-Singh-Rawat-Dev/E-Commerce-Website" target="_blank" class="project-link-btn" id="link-proj-ecom-code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Crawler -->
+                <div class="project-card-wrapper" data-category="python">
+                    <div class="glass-card project-card" id="project-web-crawler">
+                        <div class="project-icon"><i class="fas fa-spider"></i></div>
+                        <h3>Multi-threaded Web Crawler</h3>
+                        <p class="project-desc">
+                            A script to scan and extract metadata elements from websites concurrently. Includes speed limit throttling to respect target site bandwidth constraints and exports outputs to CSV formats.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">BeautifulSoup</span>
+                            <span class="project-tag">Scrapy</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Abhishek-Singh-Rawat-Dev/Web_Crawler" target="_blank" class="project-link-btn" id="link-proj-crawl-code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Titanic Survival Predictor -->
+                <div class="project-card-wrapper" data-category="python">
+                    <div class="glass-card project-card" id="project-titanic">
+                        <div class="project-icon"><i class="fas fa-ship"></i></div>
+                        <h3>Titanic Survival Project</h3>
+                        <p class="project-desc">
+                            An end-to-end Machine Learning project using classifier algorithms to forecast individual passenger survival chances based on demographics, ticket class, and details.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">Scikit-Learn</span>
+                            <span class="project-tag">Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Abhishek-Singh-Rawat-Dev/Titanic_Survival_Project" target="_blank" class="project-link-btn" id="link-proj-titanic-code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fullstack Resume Application -->
+                <div class="project-card-wrapper" data-category="web">
+                    <div class="glass-card project-card" id="project-my-resume">
+                        <div class="project-icon"><i class="far fa-file-alt"></i></div>
+                        <h3>Resume Portfolio Builder</h3>
+                        <p class="project-desc">
+                            A full-stack resume application using React architectures and dynamic templating. Built on modern database architectures featuring visual editing control panels.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js 15</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Abhishek-Singh-Rawat-Dev/MyResume" target="_blank" class="project-link-btn" id="link-proj-resume-code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;get_in_touch&gt;</span>
+                <h2 class="section-title" id="contact-title">Contact Me</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="glass-card contact-method" id="contact-method-email">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email Direct</h4>
+                            <p><a href="mailto:abhishekpersona1402@gmail.com">abhishekpersona1402@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card contact-method" id="contact-method-linkedin">
+                        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="contact-details">
+                            <h4>LinkedIn Profile</h4>
+                            <p><a href="https://www.linkedin.com/in/abhishek-singh-rawat-dev" target="_blank">abhishek-singh-rawat-dev</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card contact-method" id="contact-method-twitter">
+                        <div class="contact-icon"><i class="fab fa-twitter"></i></div>
+                        <div class="contact-details">
+                            <h4>Twitter / X</h4>
+                            <p><a href="https://x.com/abhishek1111si?s=11" target="_blank">@abhishek1111si</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" required placeholder="John Doe" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" required placeholder="john@example.com" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required placeholder="Hi Abhishek, I would love to collaborate..." class="form-input"></textarea>
+                        </div>
+                        <div id="form-status" class="form-status"></div>
+                        <button type="submit" class="btn btn-primary" style="align-self: flex-start;" id="form-submit-btn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="#home" style="font-weight: 800; font-size: 1.25rem;">
+                    &lt;Abhishek/&gt;
+                </a>
+            </div>
+            <p class="footer-text" id="footer-copyright">
+                &copy; <span id="current-year">2026</span> Abhishek Singh Rawat. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script to set current year in footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
